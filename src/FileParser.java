@@ -1,7 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  * A utility class for parsing food information from a text file.
@@ -76,5 +74,31 @@ public class FileParser {
         }
 
         return foodList;
+    }
+
+    /**
+     * Writes content to a specified output file using Scanner.
+     *
+     * @param content The content to write to the file
+     * @param outputFileName The name of the output file
+     * @return true if writing was successful, false otherwise
+     */
+    public boolean writeToFile(String content, String outputFileName) {
+        try {
+            File outputFile = new File(outputFileName);
+            Scanner scanner = new Scanner(content);
+            FileWriter writer = new FileWriter(outputFile);
+
+            while (scanner.hasNextLine()) {
+                writer.write(scanner.nextLine() + "\n");
+            }
+
+            scanner.close();
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+            return false;
+        }
     }
 }

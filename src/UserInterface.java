@@ -21,5 +21,6 @@ public class UserInterface {
         foodCommands.printList();
         foodCommands.sortDescending();
         foodCommands.printList();
+        foodCommands.writeResultsToFile("/Users/jliu61/Documents/GitHub/CalorieCounter/src/output.txt");
     }
 }

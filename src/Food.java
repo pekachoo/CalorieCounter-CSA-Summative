@@ -52,7 +52,7 @@ public class Food {
 class Burger extends Food {
 
     private ArrayList<String> ingredients;
-    
+
     /**
      * Constructs a new Burger object with the specified name and ingredients.
      * The calorie count is automatically calculated based on the ingredients.
@@ -381,7 +381,7 @@ class Smoothie extends Food {
     public void printInfo() {
         String info = "Smoothie with ";
         info += generateInfo(0);
-        info += " has " + getCalories() + " calories.";
+        info += "has " + getCalories() + " calories.";
         System.out.println(info);
     }
 

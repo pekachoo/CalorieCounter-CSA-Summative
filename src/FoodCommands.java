@@ -7,14 +7,15 @@ import java.util.*;
 public class FoodCommands {
     //goal of this class is to have commands
     private ArrayList<Food> foodList = new ArrayList<>();
+    private FileParser fileParser;
 
     /**
      * Constructs a new FoodCommands object and initializes the food list by parsing an input file.
      * The input file should be located at the specified path.
      */
     public FoodCommands(){
-        FileParser parser = new FileParser("/Users/jliu61/Documents/GitHub/CalorieCounter/src/input.txt");
-        this.foodList = parser.parseFile();
+        fileParser = new FileParser("/Users/jliu61/Documents/GitHub/CalorieCounter/src/input.txt");
+        this.foodList = fileParser.parseFile();
     }
 
     /**
@@ -126,5 +127,66 @@ public class FoodCommands {
      */
     public void removeFood(int index){
         foodList.remove(index);
+    }
+
+    /**
+     * Writes the current food list information to an output file.
+     * Includes food names, calories, and detailed information.
+     *
+     * @param outputFileName The name of the output file to write to
+     * @return true if writing was successful, false otherwise
+     */
+    public void writeResultsToFile(String outputFileName) {
+        //Uses
+        StringBuilder content = new StringBuilder();
+
+        //write initial list and other detailed food info
+        content.append("Initial Food List:\n");
+        content.append(getListAsString());
+        content.append("\nDetailed Food Information:\n");
+        content.append(getDetailedInfoAsString());
+
+        //write total calories
+        content.append("\nTotal Calories: ").append(countCaloriesRecursive()).append("\n");
+
+        //write ascending sorted list
+        sortAscending();
+        content.append("\nFood List (Ascending Order):\n");
+        content.append(getListAsString());
+
+        //write descending sorted list
+        sortDescending();
+        content.append("\nFood List (Descending Order):\n");
+        content.append(getListAsString());
+
+        fileParser.writeToFile(content.toString(), outputFileName);
+    }
+
+    /**
+     * Gets the current food list as a formatted string.
+     *
+     * @return String representation of the food list
+     */
+    private String getListAsString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < foodList.size(); i++) {
+            Food food = foodList.get(i);
+            sb.append(String.format("%s: calories: %d, index %d\n",
+                    food.getName(), food.getCalories(), i));
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Gets detailed information about all food items as a formatted string.
+     *
+     * @return String containing detailed information about all food items
+     */
+    private String getDetailedInfoAsString() {
+        StringBuilder sb = new StringBuilder();
+        for (Food food : foodList) {
+            sb.append(food.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
