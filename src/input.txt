@@ -1,0 +1,35 @@
+name: burger
+Ingredients:
+Tomatoes
+Lettuce
+Cheese
+End
+name: pizza
+Ingredients:
+Mushrooms
+Pepperoni
+Extra Cheese
+End
+name: salad
+Ingredients:
+Lettuce
+Croutons
+Chicken
+End
+name: smoothie
+Ingredients:
+Banana
+Strawberry
+Blueberry
+End
+name: burger
+Ingredients:
+Beef Patty
+Cheese
+End
+name: smoothie
+Ingredients:
+Banana
+Mango
+End
+
