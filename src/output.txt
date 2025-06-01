@@ -1,0 +1,33 @@
+Initial Food List:
+Burger: calories: 500, index 0
+Pizza: calories: 460, index 1
+Burger: calories: 400, index 2
+Smoothie: calories: 280, index 3
+Smoothie: calories: 260, index 4
+Salad: calories: 240, index 5
+
+Detailed Food Information:
+Burger@799f7e29
+Pizza@4b85612c
+Burger@277050dc
+Smoothie@5c29bfd
+Smoothie@7aec35a
+Salad@67424e82
+
+Total Calories: 2140
+
+Food List (Ascending Order):
+Salad: calories: 240, index 0
+Smoothie: calories: 260, index 1
+Smoothie: calories: 280, index 2
+Burger: calories: 400, index 3
+Pizza: calories: 460, index 4
+Burger: calories: 500, index 5
+
+Food List (Descending Order):
+Burger: calories: 500, index 0
+Pizza: calories: 460, index 1
+Burger: calories: 400, index 2
+Smoothie: calories: 280, index 3
+Smoothie: calories: 260, index 4
+Salad: calories: 240, index 5
